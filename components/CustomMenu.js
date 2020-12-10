@@ -53,7 +53,7 @@ export const CutomMenu = ({contentType, openBrowserTitle, copyLinkTitle, url, ex
           ref={setMenu}
           button={<MenuButton onPress={openMenu} contentType={contentType} />}
         >
-          <MenuItem onPress={onPressOpenBrowser}>{openBrowserTitle}</MenuItem
+          <MenuItem onPress={onPressOpenBrowser}>{openBrowserTitle}</MenuItem>
           {
               (extraMenuItems && extraMenuItems.length > 0) &&
               extraMenuItems.map(renderExtraMenuItems)
