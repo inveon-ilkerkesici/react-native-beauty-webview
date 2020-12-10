@@ -4,7 +4,7 @@ import MenuItem from './MenuItem';
 import MenuDivider from './MenuDivider';
 import { StyleSheet, Image, TouchableOpacity, Linking, View } from 'react-native';
 import { images } from '../res';
-import Clipboard from "@react-native-community/clipboard";
+//import Clipboard from "@react-native-community/clipboard";
 
 export const CutomMenu = ({contentType, openBrowserTitle, copyLinkTitle, url, extraMenuItems}) => {
     const [menu, setMenu] = useState(null);
@@ -13,10 +13,7 @@ export const CutomMenu = ({contentType, openBrowserTitle, copyLinkTitle, url, ex
         if(menu) menu.hide();
     }
 
-    const onPressCopy =  () => {
-        Clipboard.setString(url);
-        hideMenu();
-    }
+    
 
     const onPressOpenBrowser = () => {
         Linking.canOpenURL(url).then(supported => {
@@ -56,9 +53,7 @@ export const CutomMenu = ({contentType, openBrowserTitle, copyLinkTitle, url, ex
           ref={setMenu}
           button={<MenuButton onPress={openMenu} contentType={contentType} />}
         >
-          <MenuItem onPress={onPressOpenBrowser}>{openBrowserTitle}</MenuItem>
-          <MenuDivider />
-          <MenuItem onPress={onPressCopy}>{copyLinkTitle}</MenuItem>
+          <MenuItem onPress={onPressOpenBrowser}>{openBrowserTitle}</MenuItem
           {
               (extraMenuItems && extraMenuItems.length > 0) &&
               extraMenuItems.map(renderExtraMenuItems)
